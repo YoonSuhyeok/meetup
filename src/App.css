@@ -334,19 +334,6 @@ body {
   background-color: #e8e8e8;
 }
 
-.date-column-header {
-  display: table-cell;
-  width: 120px;
-  padding: 12px 8px;
-  font-weight: bold;
-  font-size: 12px;
-  text-align: center;
-  border-right: 1px solid #ccc;
-  border-bottom: 2px solid #999;
-  background-color: #d0d0d0;
-  vertical-align: middle;
-}
-
 .time-column-header {
   display: table-cell;
   width: 80px;
@@ -360,6 +347,19 @@ body {
   vertical-align: middle;
 }
 
+.date-column-header {
+  display: table-cell;
+  width: 120px;
+  padding: 12px 8px;
+  font-weight: bold;
+  font-size: 12px;
+  text-align: center;
+  border-right: 1px solid #ccc;
+  border-bottom: 2px solid #999;
+  background-color: #d0d0d0;
+  vertical-align: middle;
+}
+
 /* Time Grid Rows */
 .time-row-grid {
   display: table-row;
@@ -367,6 +367,24 @@ body {
 
 .time-row-grid:hover {
   background-color: #f8f8f8;
+}
+
+.time-column {
+  display: table-cell;
+  width: 80px;
+  padding: 12px 4px;
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ddd;
+  background-color: #f5f5f5;
+  vertical-align: middle;
+  text-align: center;
+}
+
+.time-label {
+  font-weight: bold;
+  font-size: 11px;
+  color: #333;
+  display: block;
 }
 
 .date-column {
@@ -397,8 +415,8 @@ body {
 /* Time Slot Buttons */
 .time-slot-btn {
   display: table-cell;
-  width: 80px;
-  height: 60px;
+  width: 120px;
+  height: 50px;
   border: none;
   border-right: 1px solid #ddd;
   border-bottom: 1px solid #ddd;
@@ -475,16 +493,21 @@ body {
     min-width: 600px; /* 스크롤 가능하도록 최소 너비 유지 */
   }
 
+  .time-column-header {
+    width: 60px;
+    font-size: 9px;
+    padding: 10px 2px;
+  }
+
   .date-column-header {
     width: 100px;
     font-size: 11px;
     padding: 10px 4px;
   }
 
-  .time-column-header {
+  .time-column {
     width: 60px;
-    font-size: 9px;
-    padding: 10px 2px;
+    padding: 8px 2px;
   }
 
   .date-column {
@@ -493,8 +516,12 @@ body {
   }
 
   .time-slot-btn {
-    width: 60px;
-    height: 50px;
+    width: 100px;
+    height: 45px;
+  }
+
+  .time-label {
+    font-size: 10px;
   }
 
   .date-label {

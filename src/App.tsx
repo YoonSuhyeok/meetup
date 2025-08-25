@@ -421,20 +421,11 @@ function App() {
           <h3>Select your available times for each date:</h3>
           <div className="time-grid-container">
             <div className="time-grid">
-              {/* 시간 헤더 */}
+              {/* 날짜 헤더 */}
               <div className="time-header">
-                <div className="date-column-header">Date</div>
-                {generateTimeSlots().map(timeSlot => (
-                  <div key={timeSlot} className="time-column-header">
-                    {timeOptions.find(opt => opt.value === timeSlot)?.label || timeSlot}
-                  </div>
-                ))}
-              </div>
-              
-              {/* 각 날짜별 시간 선택 행 */}
-              {eventState.selectedDates.map((date, dateIndex) => (
-                <div key={dateIndex} className="time-row-grid">
-                  <div className="date-column">
+                <div className="time-column-header">Time</div>
+                {eventState.selectedDates.map((date, dateIndex) => (
+                  <div key={dateIndex} className="date-column-header">
                     <div className="date-label">
                       {formatDate(date)}
                     </div>
@@ -442,10 +433,21 @@ function App() {
                       {formatDay(date)}
                     </div>
                   </div>
+                ))}
+              </div>
+              
+              {/* 각 시간별 날짜 선택 행 */}
+              {generateTimeSlots().map((timeSlot, timeIndex) => (
+                <div key={timeIndex} className="time-row-grid">
+                  <div className="time-column">
+                    <div className="time-label">
+                      {timeOptions.find(opt => opt.value === timeSlot)?.label || timeSlot}
+                    </div>
+                  </div>
                   
-                  {generateTimeSlots().map(timeSlot => (
+                  {eventState.selectedDates.map((date, dateIndex) => (
                     <button
-                      key={timeSlot}
+                      key={dateIndex}
                       onMouseDown={(e) => handleMouseDown(date, timeSlot, e)}
                       onMouseEnter={() => handleMouseEnter(date, timeSlot)}
                       onMouseUp={handleMouseUp}
