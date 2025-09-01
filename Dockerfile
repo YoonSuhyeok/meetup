@@ -1,8 +1,17 @@
 FROM node:22.19-alpine3.21
 
-WORKDIR /app
-COPY package*.json ./
-RUN npm install
-COPY . .
+ENV PNPM_HOME="/pnpm"
+ENV PATH="$PNPM_HOME:$PATH"
+RUN corepack enable
 
-CMD ["npm", "start"]
+COPY . /app
+WORKDIR /app
+
+RUN pnpm install
+
+ENV HOST=0.0.0.0
+ENV PORT=1420
+
+EXPOSE 1420
+
+CMD ["pnpm", "run", "dev"]
